@@ -1,0 +1,3 @@
+mountpoint/
+*.ext4
+*.tar.xz
