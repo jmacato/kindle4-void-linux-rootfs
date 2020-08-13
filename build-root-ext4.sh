@@ -1,5 +1,10 @@
 #!/bin/sh
 
+if [[ $EUID -ne 0 ]]; then
+   echo "This script must be run as root" >&2
+   exit 1
+fi
+
 wget https://alpha.de.repo.voidlinux.org/live/current/void-armv7l-musl-ROOTFS-20191109.tar.xz
 
 dd if=/dev/zero of=image.ext4 bs=1M count=256
